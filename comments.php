@@ -6,7 +6,8 @@ public $pageurl = null;
 public $name = null;
 public $email = null;
 public $website = null;
-public $comment = null;
+public $comment = "";
+public $ip     = "";
 public static $message= "";
 public function __construct($data=array()){
 if(isset($data['id']))$this->id=int($data['id']);
@@ -16,8 +17,10 @@ if(isset($data['email'])){if(filter_var($data['email'],FILTER_VALIDATE_EMAIL)){$
 else{self::$message="invalid email";}}
 if(isset($data['website'])){if(filter_var($data['website'],FILTER_VALIDATE_URL)){$this->website=$data['website'];}else{
 self::$message="invalid website";}}
-if(isset($data['comment']))$this->commennt=$data['comment'];
+if(isset($data['comment']))$this->comment=$data['comment'];
 }
+public function storeFormData($formparam){}
+public function insertComments($urlparam){}
 }
 
 $action=isset($ction)?$_GET['action']:"";
