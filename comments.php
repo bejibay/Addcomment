@@ -19,8 +19,24 @@ if(isset($data['website'])){if(filter_var($data['website'],FILTER_VALIDATE_URL))
 self::$message="invalid website";}}
 if(isset($data['comment']))$this->comment=$data['comment'];
 }
-public function storeFormData($formparam){}
-public function insertComments($urlparam){}
+public function storeFormData($formparam){
+$this->__construct($param);
+}
+public function insertComments($urlparam){
+$conn = new PDO(DSN,USERNAME,PASSWORD,DBASE);
+$sql = " INSERT INTO commentTable(pageurl,name, email,website,comment,ip)
+VALUES(:pageurl,:name,:website,:comment,:ip)";
+$stm = $conn->prepare($sql);
+$stm-bindValue(:pageurl,$this->pageurl,PDO_PARAM_STR);
+$stm-bindValue(:name,$this->name,PDO_PARAM_STR);
+$stm-bindValue(:email,$this->email,PDO_PARAM_STR);
+$stm-bindValue(:website,$this->website,PDO_PARAM_STR);
+$stm-bindValue(:comment,$this->comment,PDO_PARAM_STR);
+$stm-bindValue(:ip,$this->ip,PDO_PARAM_INT);
+$stm->execute();
+$conn-null;
+
+}
 }
 
 $action=isset($ction)?$_GET['action']:"";
