@@ -39,21 +39,17 @@ $conn-null;
 }
 }
 
-$action=isset($ction)?$_GET['action']:"";
 ?>
+
 <?php 
+$action=isset($ction)?$_GET['action']:"";
 if($action)){
-Comments::getComments($action);
-foreach($row as $row){}
 if($_POST['savecomments']){
 $comments=new Comments();
-$comments->storeForm($_POST);
-$comments->insertComments($action);
-Comments::getComments($action);
-foreach($row as $row){
-echo "<ul>";
-}
-}
+$comments->storeFormData($_POST);
+$comments->insertComments($action);}
+if($_POST['cancelcomments']){include 'commentsform.php';}
+else{include 'commentsform.php';}
 }
 ?>
 
