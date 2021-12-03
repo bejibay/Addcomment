@@ -34,13 +34,13 @@ $stm-bindValue(:website,$this->website,PDO_PARAM_STR);
 $stm-bindValue(:comment,$this->comment,PDO_PARAM_STR);
 $stm-bindValue(:ip,$this->ip,PDO_PARAM_INT);
 $stm->execute();
-$conn-null;
-
+$conn->null;
 }
 }
-
 ?>
-
+<?php
+<div class ="formcomments"></div>
+?>
 <?php 
 $action=isset($ction)?$_GET['action']:"";
 if($action)){
