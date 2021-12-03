@@ -4,7 +4,7 @@ xhr.onload=function(){
 document.getElementById("loadcomments").innerHTML=
 xhr.responseText;
 }
-xhr.open("GET","/comments.php" true);
+xhr.open("GET","selectcomments.php" true);
 xhr.send();
 }
 
