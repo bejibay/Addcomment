@@ -36,22 +36,16 @@ $stm-bindValue(:ip,$this->ip,PDO_PARAM_INT);
 $stm->execute();
 $conn->null;
 }
+public function selectComments($entries){
+$conn = new PDO(DSN,USERNAME,PASSWORD,DBASE);
+$sql = "SELECT* FROM commentstable where pageurl=:pageurl";
+$stm = $conn->prepare($sql);
+$stm->bindValue(:pageurl,$this->pageurl, PDO_PARAM_STR);
+}
 }
 ?>
-<?php
-<div class ="formcomments"></div>
-?>
-<?php 
-$action=isset($ction)?$_GET['action']:"";
-if($action)){
-if($_POST['savecomments']){
-$comments=new Comments();
-$comments->storeFormData($_POST);
-$comments->insertComments($action);}
-if($_POST['cancelcomments']){include 'commentsform.php';}
-else{include 'commentsform.php';}
-}
-?>
+
+
 
 
 
