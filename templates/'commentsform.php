@@ -1,4 +1,4 @@
-<form method ="post" action ="insertComments.php">
+<form method ="post" action ="insertcomments.php">
 <div>
 <label for="name">Name<label/>
 <input type ="text" name ="name">
@@ -8,10 +8,9 @@
 <input type ="text" name ="website" >
 <label for="comments">Comments<label/>
 <textarea name ="comments"></textarea>
-<input type ="hidden" name ="ip" value="<?php echo $_SERVER['REMOTE_ADDR'];?>">
-<input type ="hidden" name ="pubdate" value>
-<input type ="submit" name ="submit" value ="Submit Comments">
-<label for="name">Name<label/>
+<input type ="hidden" name ="ip" value="<?php echo $_SERVER['REMOTE_ADD"];?>"> 
+<input type ="date" name="pubdate" >
 </div>
-<input type ="cancel" name ="cancel" value ="Cancel">
+<input type ="submit" name ="submit" value ="Submit Comments">
+<input type ="reset" name ="cancel" value ="Cancel">
 </form>
