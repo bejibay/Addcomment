@@ -1,4 +1,4 @@
-// this scripts is to post commwntd
+<?php require("config.php");?>
 
 ?php 
 Class Comments{
@@ -24,9 +24,9 @@ public function storeFormData($formparam){
 $this->__construct($param);
 }
 public function insertComments($urlparam){
-$conn = new PDO(DSN,USERNAME,PASSWORD,DBASE);
-$sql = " INSERT INTO commentTable(pageurl,name, email,website,comment,ip)
-VALUES(:pageurl,:name,:website,:comment,:ip)";
+$conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
+$sql = " INSERT INTO commentstable(pageurl,name, email,website,comment,ip,pubdate)
+VALUES(:pageurl,:name,:website,:comment,:ip,:pubdate)";
 $stm = $conn->prepare($sql);
 $stm-bindValue(:pageurl,$this->pageurl,PDO_PARAM_STR);
 $stm-bindValue(:name,$this->name,PDO_PARAM_STR);
@@ -34,6 +34,7 @@ $stm-bindValue(:email,$this->email,PDO_PARAM_STR);
 $stm-bindValue(:website,$this->website,PDO_PARAM_STR);
 $stm-bindValue(:comment,$this->comment,PDO_PARAM_STR);
 $stm-bindValue(:ip,$this->ip,PDO_PARAM_INT);
+$stm-bindValue(:pubdate,$this->pubdate,PDO_PARAM_INT)
 $stm->execute();
 $conn->null;
 }
