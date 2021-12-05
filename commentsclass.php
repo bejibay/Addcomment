@@ -39,7 +39,7 @@ $stm->execute();
 $conn->null;
 }
 public function selectComments($entries){
-$conn = new PDO(DSN,USERNAME,PASSWORD,DBASE);
+$conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
 $sql = "SELECT* FROM commentstable where pageurl=:pageurl";
 $stm = $conn->prepare($sql);
 $stm->bindValue(":pageurl",$this->pageurl, PDO::PARAM_STR);
