@@ -32,7 +32,7 @@ $this->pubdate = mktime(0,0,0,$m,$d,$y);
 }
 
 }
-public function insertComments($urlparam){
+public function insertComments(){
 $conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
 $sql = " INSERT INTO commentstable(pageurl,name, email,website,comment,ip,pubdate)
 VALUES(:pageurl,:name,:website,:comment,:ip,:pubdate)";
