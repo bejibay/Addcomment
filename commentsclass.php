@@ -1,4 +1,4 @@
-<?php require("config.php");?>
+Else<?php require("config.php");?>
 
 ?php 
 Class Comments{
@@ -20,8 +20,17 @@ if(isset($data['website'])){if(filter_var($data['website'],FILTER_VALIDATE_URL))
 self::$message="invalid website";}}
 if(isset($data['comment']))$this->comment=$data['comment'];
 }
-public function storeFormData($formparam){
+public function storeFormData($param){
 $this->__construct($param);
+if(isset($param['pubdate'])){
+$pubdate = explode('-',$param['pubdate']);
+if(count($pubdate)==3){
+list($y,$m,$d)=$pubdate;
+$this->pubdate = mktime(0,0,0,$m,$d,$y);
+}
+
+}
+
 }
 public function insertComments($urlparam){
 $conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
