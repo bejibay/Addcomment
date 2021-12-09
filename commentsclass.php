@@ -47,11 +47,15 @@ $stm-bindValue(":pubdate",$this->pubdate,PDO::PARAM_INT)
 $stm->execute();
 $conn->null;
 }
-public function selectComments($entries){
+public function selectComments($urlparam){
 $conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
 $sql = "SELECT* FROM commentstable where pageurl=:pageurl";
 $stm = $conn->prepare($sql);
-$stm->bindValue(":pageurl",$this->pageurl, PDO::PARAM_STR);
+$stm->bindValue(":pageurl",$urlparam, PDO::PARAM_STR);
+$stm->execute();
+$conn = null;
+$row = $stm->fetchAll();
+if($row) return new Comments($row);
 }
 }
 ?>
