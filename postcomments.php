@@ -3,7 +3,7 @@
 $action=isset($ction)?$_GET['action']:"";
 if($action)){
 $comments=new Comments;
-$comments->storeFormValues();
+$comments->storeFormData($_POST);
 $comments->postComments();
 }
 ?>
