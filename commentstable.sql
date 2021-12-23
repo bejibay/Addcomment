@@ -1,4 +1,4 @@
-CREATE TABLE commentstable if not exist(
+CREATE TABLE if not exists commentstable (
 id int PRIMARY KEY AUTO_INCREMENT,
 pageurl varchar(255),
 name varchar(255),
