@@ -1,7 +1,6 @@
 <?php require("config.php");?>
-
 ?php 
-Class Comments{
+class Comments{
 public $id = null;
 public $pageurl = null;
 public $name = null;
@@ -28,9 +27,7 @@ if(count($pubdate)==3){
 list($y,$m,$d)=$pubdate;
 $this->pubdate = mktime(0,0,0,$m,$d,$y);
 }
-
 }
-
 }
 public function insertComments(){
 $conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
