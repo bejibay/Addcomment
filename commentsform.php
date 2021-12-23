@@ -1,4 +1,4 @@
-<form method ="post" action ="<?php htmlspecialchars($_SERVER['PHP_SELF'];?>">
+<form method ="post" action ="<?php echo htmlspecialchars($_SERVER['PHP_SELF'];?>">
 <div>
 <label for="name">Name<label/>
 <input type ="text" name ="name">
