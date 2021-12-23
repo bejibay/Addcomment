@@ -1,4 +1,4 @@
-<form method ="post" action ="insertcomments.php">
+<form method ="post" action ="<?php htmlspecialchars($_SERVER['PHP_SELF'];?>">
 <div>
 <label for="name">Name<label/>
 <input type ="text" name ="name">
