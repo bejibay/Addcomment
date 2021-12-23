@@ -7,7 +7,7 @@ $comments->storeFormData($_POST);
 $comments->postComments();
 }
 ?>
-
+<?php include "commentsform.php";?>
 
 
 
