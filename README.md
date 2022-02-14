@@ -6,12 +6,12 @@ for the partcular page
 * By AJAX, the comments are fetched from the server
 and displayed.
 ## Scripts
-* coomentclass.php
+* commentsclass.php
 * postcomments.php
-* select comments.php
-* load comments.us
+* selectcomments.php
+* loadcomments.php
 ## Application
-* It cab used on a blog on a website to add users' comments
+* It can used on a blog or on a website to add users' comments
 
 
 
