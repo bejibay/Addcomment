@@ -1,6 +1,5 @@
-<?php require("config.php");?>
-?php 
-global $message;
+<?php require("config.php");
+$message = "";
 class Comments{
 public $id = null;
 public $pageurl = null;
@@ -10,6 +9,7 @@ public $website = null;
 public $comment = "";
 public $ip     = "";
 public function __construct($data=array()){
+global $message;
 if(isset($data['id']))$this->id=int($data['id']);
 if(isset($data['pageurl']))$this->pageurl=$data['pageurl'];
 if(isset($data['name'])){$this->name=$data['name'];}
