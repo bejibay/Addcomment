@@ -1,11 +1,14 @@
-div label, div input{
-display:block;
-}
+*{box-sizing: border-box;}
 input{
+padding: 15px 15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+label,input[type="text"], input[type"date"]
+{
+display:block;
 width: 30px;
-padding:15px 15px;
-margin:5px 0;
-border:1px solid #ccc;
-border-radius:4px;
-border-box:box-sizing;
+}
+input[type="submit"], input[type"cancel"]
+{width: 15px;
 }
