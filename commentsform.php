@@ -1,5 +1,6 @@
 <form method ="post" action ="<?php echo htmlspecialchars($_SERVER['PHP_SELF'];?>">
 <div>
+<h2>Add Comments </h2>
 <label for="name">Name<label/>
 <input type ="text" name ="name">
 <label for="email">Email<label/>
