@@ -1,5 +1,6 @@
 <?php require("config.php");?>
 ?php 
+global $message;
 class Comments{
 public $id = null;
 public $pageurl = null;
@@ -8,17 +9,19 @@ public $email = null;
 public $website = null;
 public $comment = "";
 public $ip     = "";
-public static $message= "";
 public function __construct($data=array()){
 if(isset($data['id']))$this->id=int($data['id']);
 if(isset($data['pageurl']))$this->pageurl=$data['pageurl'];
-if(isset($data['name']))$this->name=$data['name'];
-if(isset($data['email'])){if(filter_var($data['email'],FILTER_VALIDATE_EMAIL)){$this->email=$data['email'];}
-else{self::$message="invalid email";}}
-if(isset($data['website'])){if(filter_var($data['website'],FILTER_VALIDATE_URL)){$this->website=$data['website'];}else{
-self::$message="invalid website";}}
-if(isset($data['comment']))$this->comment=$data['comment'];
+if(isset($data['name'])){$this->name=$data['name'];}
+else{$message = "Your name cannot be empty";}
+if(isset($data['email']) && filter_var($data['email'],FILTER_VALIDATE_EMAIL)){$this->email=$data['email'];}
+else{$message="invalid email";}
+if(isset($data['website']) && filter_var($data['website'],FILTER_VALIDATE_URL)){$this->website=$data['website'];}
+else{$message="invalid website";}}
+if(isset($data['comment'])){$this->comment=$data['comment'];}
+else{$message= " Comments cannot be empty";}
 }
+
 public function storeFormData($param){
 $this->__construct($param);
 if(isset($param['pubdate'])){
@@ -28,7 +31,7 @@ list($y,$m,$d)=$pubdate;
 $this->pubdate = mktime(0,0,0,$m,$d,$y);
 }
 }
-}
+
 public function insertComments(){
 $conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
 $sql = " INSERT INTO commentstable(pageurl,name, email,website,comment,ip,pubdate)
@@ -44,6 +47,7 @@ $stm-bindValue(":pubdate",$this->pubdate,PDO::PARAM_INT)
 $stm->execute();
 $conn->null;
 }
+
 public function selectComments($urlparam){
 $conn = new PDO(DB_DSN,DB_USERNAME,DB_PASSWORD);
 $sql = "SELECT* FROM commentstable where pageurl=:pageurl";
