@@ -12,6 +12,8 @@ and displayed.
 * loadcomments.js
 ## Application
 * It can be used on a blog or on a website to add users' comments
+* It can be enhanced with codes that will prevent comments' 
+flooding from a particular IP address.
 
 
 
