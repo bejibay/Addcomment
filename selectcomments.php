@@ -1,5 +1,4 @@
 <?php require("config.php");
-
 if(isset($_GET['pageurl'])){
 $pageurl = $_GET['pageurl'];
 $results = array();
