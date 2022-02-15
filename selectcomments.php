@@ -1,13 +1,14 @@
-<?php require( "config.php");?>
-<?php 
-$action=isset($ction)?$_GET['action']:"";
-if($action){
+<?php require("config.php");
+
+if(isset($_GET['pageurl'])){
+$pageurl = $_GET['pageurl'];
+$results = array();
 $comments=new Comments;
-$comments->selectComments($action);
-foreach($row as $value){
+$results['articles'] = $comments->selectComments($pageurl);
+foreach($results['articles'] as $value){
 echo "<ul>";
-echo "<li>".$value['name']."</li>";
-echo "<li>".$value['comment']."</li>";
+echo "<li>".$value->name."</li>";
+echo "<li>".$value->comment."</li>";
 echo "</ul>";
 }
 }
