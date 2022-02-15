@@ -55,8 +55,9 @@ $stm = $conn->prepare($sql);
 $stm->bindValue(":pageurl",$urlparam, PDO::PARAM_STR);
 $stm->execute();
 $conn = null;
-$row = $stm->fetchAll();
-if($row) return new Comments($row);
+while($row = $stm->fetch()){
+$rowcomments = new Comments($row);
 }
+return $rowcomments;
 }
 ?>
