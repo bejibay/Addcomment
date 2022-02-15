@@ -60,4 +60,5 @@ $rowcomments = new Comments($row);
 }
 return $rowcomments;
 }
+}
 ?>
